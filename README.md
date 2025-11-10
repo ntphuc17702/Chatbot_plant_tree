@@ -1,4 +1,21 @@
 # 🚀 Hướng dẫn khởi chạy hệ thống RAG
+# Dự án sử dụng Ollama với mô hình Gemma 2B
+
+## Mô tả
+Dự án này sử dụng mô hình **Gemma 2B** chạy qua **Ollama** để thực hiện các tác vụ AI cục bộ.
+
+## Yêu cầu môi trường
+- Python 3.12
+- Ollama (đã cài sẵn)
+- Mô hình: `gemma:2b` hoặc `gemma2b-instruct`
+
+## Cài đặt
+
+### 1. Cài Ollama
+Tải và cài từ: [https://ollama.ai](https://ollama.ai)
+
+### 2. Tải mô hình Gemma 2B
+ollama pull gemma:2b
 
 ## 1️⃣ Chuẩn bị dữ liệu
 - Đặt tất cả các tệp **`.docx`** đầu vào vào thư mục:  
