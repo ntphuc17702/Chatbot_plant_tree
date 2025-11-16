@@ -1,7 +1,6 @@
 
 import sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8")
-
 import os, json, uuid
 import numpy as np
 import faiss
@@ -40,6 +39,11 @@ else:
 # 📄 Hàm xử lý 1 file đơn
 def ingest_file(path):
     raw_text = auto_extract(path)
+    if not path.lower().endswith(".docx"):
+        print(f"[!] Bỏ qua (không phải docx): {path}")
+        return
+
+
     if not raw_text.strip():
         print(f"[!] Bỏ qua file rỗng: {path}")
         return
@@ -83,7 +87,12 @@ def ingest_file(path):
 # ---------------------------------------------------------------
 # 🚀 Ingest toàn bộ thư mục
 def ingest_folder(folder=DATA_DIR):
-    files = [os.path.join(folder, f) for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
+    # files = [os.path.join(folder, f) for f in os.listdir(folder) if os.path.isfile(os.path.join(folder, f))]
+    files = [
+        os.path.join(folder, f)
+        for f in os.listdir(folder)
+        if os.path.isfile(os.path.join(folder, f)) and f.lower().endswith(".docx")
+    ]
     if not files:
         print("⚠️ Không có file nào trong thư mục cần ingest.")
         return
