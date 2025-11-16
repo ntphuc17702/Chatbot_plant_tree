@@ -35,7 +35,7 @@ else:
     index = faiss.IndexFlatIP(dimension)  # cosine similarity
     docs = []
 
-# ---------------------------------------------------------------
+# ------------------------------------------------------------------
 # 📄 Hàm xử lý 1 file đơn
 def ingest_file(path):
     raw_text = auto_extract(path)
